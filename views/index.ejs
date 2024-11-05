@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #45a049;
+        }
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .blog-post {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .blog-post h2 {
+            margin: 0;
+        }
+        .blog-post p {
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>My Blog</h1>
+        <a href="/createblog">Create Blogs</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+    </div>
+    
+    <div class="content">
+        <h1>Welcome to the Blog Page</h1>
+        <p>This is where you can find and create amazing blogs!</p>
+        <p>Explore various topics, share your thoughts, and connect with a community of bloggers. Happy blogging!</p>
+        
+        <% if (blogs.length > 0) { %>
+            <h2>Blog Posts:</h2>
+            <% blogs.forEach(blog => { %>
+                <div class="blog-post">
+                    <h2><%= blog.title %></h2>
+                    <h4><%= blog.subtitle %></h4>
+                    <p><%= blog.description %></p>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No blogs found.</p>
+        <% } %>
+    </div>
+</body>
+</html>
